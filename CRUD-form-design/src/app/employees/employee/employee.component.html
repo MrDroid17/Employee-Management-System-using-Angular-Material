@@ -39,8 +39,7 @@
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field>
-                    <input formControlName="hireDate" matInput placeholder="Hire Date">
-                    <!-- <input formControlName="hireDate" matInput [matDatePicker]="picker" placeholder="Hire Date"> -->
+                    <input formControlName="hireDate" matInput [matDatepicker]="picker" placeholder="Hire Date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
 
