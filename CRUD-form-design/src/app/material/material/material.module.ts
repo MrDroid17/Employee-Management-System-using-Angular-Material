@@ -1,14 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import * as Material from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import { MatToolbarModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatButtonModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    Material.MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatButtonModule
   ],
   exports: [
-    Material.MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatButtonModule
   ],
   declarations: []
 })
