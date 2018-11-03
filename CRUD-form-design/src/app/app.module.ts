@@ -14,6 +14,7 @@ import { EmployeeService } from './shared/employee.service';
 import { firebaseConfig } from '../environments/firebase.config';
 import { environment } from '../environments/environment.prod';
 import { DepartmetService } from './shared/departmet.service';
+import { NotificationService } from './shared/notification.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { DepartmetService } from './shared/departmet.service';
     AngularFireDatabaseModule
 
   ],
-  providers: [EmployeeService, DepartmetService],
+  providers: [
+    EmployeeService,
+    DepartmetService,
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

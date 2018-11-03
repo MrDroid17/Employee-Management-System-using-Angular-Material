@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../shared/employee.service';
 import { DepartmetService } from '../../shared/departmet.service';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-employee',
@@ -10,8 +11,9 @@ import { DepartmetService } from '../../shared/departmet.service';
 export class EmployeeComponent implements OnInit {
 
   constructor(
-  private employeeService: EmployeeService,
-  private departmentService: DepartmetService) { }
+    private employeeService: EmployeeService,
+    private departmentService: DepartmetService,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
     // call get employees function
@@ -21,6 +23,7 @@ export class EmployeeComponent implements OnInit {
   onClear() {
     this.employeeService.form.reset();
     this.employeeService.initFormGroup();
+    this.notificationService.reset('Form Clear', 'Reset');
   }
 
   onSubmit() {
@@ -28,6 +31,7 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.insertEmployee(this.employeeService.form.value);
       this.employeeService.form.reset();
       this.employeeService.initFormGroup();
+      this.notificationService.success('New employee added', 'Submit');
     }
   }
 

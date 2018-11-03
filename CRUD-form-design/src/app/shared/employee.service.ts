@@ -20,7 +20,7 @@ export class EmployeeService {
     city: new FormControl(''),
     gender: new FormControl('1'),
     department: new FormControl(0),
-    hireData: new FormControl(''),
+    hireDate: new FormControl(''),
     isPermanent: new FormControl(false),
   });
 
@@ -34,7 +34,7 @@ export class EmployeeService {
       city: '',
       gender: '1',
       department: '0',
-      hireData: '',
+      hireDate: '',
       isPermanent: false,
     });
   }
