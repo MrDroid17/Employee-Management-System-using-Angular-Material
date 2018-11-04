@@ -33,8 +33,19 @@
                 <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
             </mat-cell>
         </ng-container>
+        <!-- loading data -->
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">Loading data...</mat-footer-cell>
+        </ng-container>
+        <!-- no data -->
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">No data.</mat-footer-cell>
+        </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':employeelistData!=null}"></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(employeelistData!=null && employeelistData.data.length ==0) }"></mat-footer-row>
+
     </mat-table>
 </div>

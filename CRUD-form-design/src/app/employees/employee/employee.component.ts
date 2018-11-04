@@ -29,9 +29,9 @@ export class EmployeeComponent implements OnInit {
   onSubmit() {
     if (this.employeeService.form.valid) {
       this.employeeService.insertEmployee(this.employeeService.form.value);
+      this.notificationService.success('New employee added', 'Submit');
       this.employeeService.form.reset();
       this.employeeService.initFormGroup();
-      this.notificationService.success('New employee added', 'Submit');
     }
   }
 
