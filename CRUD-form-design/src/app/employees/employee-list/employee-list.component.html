@@ -1,0 +1,40 @@
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="employeelistData">
+        <!-- full name -->
+        <ng-container matColumnDef="fullName">
+            <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.fullName}}</mat-cell>
+        </ng-container>
+        <!-- email -->
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+        </ng-container>
+        <!-- mobile -->
+        <ng-container matColumnDef="mobile">
+            <mat-header-cell *matHeaderCellDef>Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.mobile}}</mat-cell>
+        </ng-container>
+        <!-- city -->
+        <ng-container matColumnDef="city">
+            <mat-header-cell *matHeaderCellDef>Full Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.city}}</mat-cell>
+        </ng-container>
+        <!-- department -->
+        <ng-container matColumnDef="isPermanent">
+            <mat-header-cell *matHeaderCellDef>Permanent</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.isPermanent}}</mat-cell>
+        </ng-container>
+        <!-- action -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

@@ -15,12 +15,14 @@ import { firebaseConfig } from '../environments/firebase.config';
 import { environment } from '../environments/environment.prod';
 import { DepartmetService } from './shared/departmet.service';
 import { NotificationService } from './shared/notification.service';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
