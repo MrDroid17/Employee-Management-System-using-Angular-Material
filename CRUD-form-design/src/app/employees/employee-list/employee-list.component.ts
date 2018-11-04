@@ -9,6 +9,7 @@ import { EmployeeService } from '../../shared/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employeelistData: MatTableDataSource<any>;
+  searchKey: string;
   // array of columns
   displayedColumns = ['fullName', 'email', 'mobile', 'city', 'isPermanent', 'actions'];
   @ViewChild(MatSort) sort: MatSort;
