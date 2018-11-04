@@ -46,6 +46,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':employeelistData!=null}"></mat-footer-row>
         <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide': !(employeelistData!=null && employeelistData.data.length ==0) }"></mat-footer-row>
-
     </mat-table>
+    <!-- paginator -->
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 25, 50]" [pageSize]="2" showFirstLastButtons></mat-paginator>
 </div>

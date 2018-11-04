@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { EmployeeService } from '../../shared/employee.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class EmployeeListComponent implements OnInit {
   // array of columns
   displayedColumns = ['fullName', 'email', 'mobile', 'city', 'isPermanent', 'actions'];
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -26,6 +27,7 @@ export class EmployeeListComponent implements OnInit {
       // convert list in data source
       this.employeelistData = new MatTableDataSource(employeeArray);
       this.employeelistData.sort = this.sort;
+      this.employeelistData.paginator = this.paginator;
     });
   }
 
