@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { EmployeeService } from '../../shared/employee.service';
 import { DepartmetService } from '../../shared/departmet.service';
-import { database } from 'firebase';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { EmployeeComponent } from '../employee/employee.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,8 +18,11 @@ export class EmployeeListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private employeeService: EmployeeService,
-    private departmentService: DepartmetService) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private departmentService: DepartmetService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(list => {
@@ -50,6 +54,16 @@ export class EmployeeListComponent implements OnInit {
 
   applyFilter() {
     this.employeelistData.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  onCreateEmployee() {
+    this.employeeService.initFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '60%';
+    this.dialog.open(EmployeeComponent, dialogConfig);
+
   }
 
 }

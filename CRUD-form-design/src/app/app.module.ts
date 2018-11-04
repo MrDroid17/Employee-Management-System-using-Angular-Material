@@ -39,6 +39,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     DepartmetService,
     NotificationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EmployeeComponent]
 })
 export class AppModule { }

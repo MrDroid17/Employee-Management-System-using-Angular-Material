@@ -47,6 +47,7 @@ export class EmployeeService {
 
   // insert employee
   insertEmployee(employee) {
+    debugger
     this.employeeList.push({
       fullName: employee.fullName,
       email: employee.email,
