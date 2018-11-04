@@ -9,7 +9,6 @@
             <mat-icon>close</mat-icon>
         </button>
     </mat-form-field>
-
 </div>
 
 <div class="mat-elevation-z8">
@@ -35,13 +34,18 @@
             <mat-cell *matCellDef="let element">{{element.city}}</mat-cell>
         </ng-container>
         <!-- department -->
+        <ng-container matColumnDef="departmentName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.departmentName}}</mat-cell>
+        </ng-container>
+        <!-- is Permanent -->
         <ng-container matColumnDef="isPermanent">
             <mat-header-cell *matHeaderCellDef>Permanent</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.isPermanent}}</mat-cell>
         </ng-container>
         <!-- action -->
         <ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
                 <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>

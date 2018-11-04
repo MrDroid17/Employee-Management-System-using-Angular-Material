@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class DepartmetService {
   department_list: AngularFireList<any>;
   departmentArray = [];
-
   constructor(private firebaseDatabase: AngularFireDatabase) {
     // department array
     this.department_list = this.firebaseDatabase.list('departments');
@@ -19,5 +19,14 @@ export class DepartmetService {
         };
       });
     });
+  }
+
+  // using lodash to get department name
+  getDepartmentName($key) {
+    if ($key === '0') {
+      return '';
+    } else {
+      return _.find(this.departmentArray, obj => obj.$key === $key)['name'];
+    }
   }
 }
