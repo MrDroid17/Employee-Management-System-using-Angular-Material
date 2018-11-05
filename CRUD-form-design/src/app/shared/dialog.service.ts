@@ -9,14 +9,16 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
-  openDeleteDialog() {
+  openDeleteDialog(msg) {
     const config = new MatDialogConfig();
     config.width = '350px';
     config.disableClose = true;
     config.panelClass = 'confirm-dialog-container';
+    config.data = {
+      message: msg
+    };
+    config.position = {top: '100px'};
 
-    this.dialog.open(DeleteConfirmationDialogComponent, config);
-
-
+    return this.dialog.open(DeleteConfirmationDialogComponent, config);
   }
 }

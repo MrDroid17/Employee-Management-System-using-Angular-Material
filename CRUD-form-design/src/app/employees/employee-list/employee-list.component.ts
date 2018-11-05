@@ -72,11 +72,14 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onDelete($key) {
-    // if (confirm('Are you sure to delete this dialog.?')) {
-    //   this.employeeService.deleteEmployee($key);
-    //   this.notificationService.delete('! Employee Successfully removed.', 'Deleted');
-    // }
-    this.dilaogService.openDeleteDialog();
+    this.dilaogService
+      .openDeleteDialog('Are you sure to delete employee?')
+      .afterClosed().subscribe(res => {
+        if (res) {
+          this.employeeService.deleteEmployee($key);
+          this.notificationService.delete('! Employee Successfully removed.', 'Deleted');
+        }
+      });
   }
 
   // define dialog configuration
