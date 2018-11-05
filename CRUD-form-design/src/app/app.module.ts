@@ -17,13 +17,15 @@ import { DepartmetService } from './shared/departmet.service';
 import { NotificationService } from './shared/notification.service';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { CommonModule, DatePipe } from '@angular/common';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    DeleteConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,9 @@ import { CommonModule, DatePipe } from '@angular/common';
     DatePipe
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EmployeeComponent]
+  entryComponents: [
+    EmployeeComponent,
+    DeleteConfirmationDialogComponent
+  ]
 })
 export class AppModule { }

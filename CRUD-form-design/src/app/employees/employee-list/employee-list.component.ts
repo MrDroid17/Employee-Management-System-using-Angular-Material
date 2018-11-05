@@ -5,6 +5,7 @@ import { DepartmetService } from '../../shared/departmet.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { EmployeeComponent } from '../employee/employee.component';
 import { NotificationService } from '../../shared/notification.service';
+import { DialogService } from '../../shared/dialog.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -23,7 +24,8 @@ export class EmployeeListComponent implements OnInit {
     private employeeService: EmployeeService,
     private departmentService: DepartmetService,
     private dialog: MatDialog,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private dilaogService: DialogService
   ) { }
 
   ngOnInit() {
@@ -70,10 +72,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onDelete($key) {
-    if (confirm('Are you sure to delete this dialog.')) {
-      this.employeeService.deleteEmployee($key);
-      this.notificationService.delete('! Employee Successfully removed.', 'Deleted');
-    }
+    // if (confirm('Are you sure to delete this dialog.?')) {
+    //   this.employeeService.deleteEmployee($key);
+    //   this.notificationService.delete('! Employee Successfully removed.', 'Deleted');
+    // }
+    this.dilaogService.openDeleteDialog();
   }
 
   // define dialog configuration
