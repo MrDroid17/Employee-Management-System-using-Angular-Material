@@ -15,12 +15,22 @@ export class NotificationService {
   };
 
   success(msg, action) {
-    this.config['panelClass'] = ['notification', 'success'];
+    this.config['panelClass'] = ['notification', 'insert'];
     this.snackBar.open(msg, action, this.config);
   }
 
   reset(msg, action) {
     this.config['panelClass'] = ['notification', 'reset'];
+    this.snackBar.open(msg, action, this.config);
+  }
+
+  update(msg, action) {
+    this.config['panelClass'] = ['notification', 'update'];
+    this.snackBar.open(msg, action, this.config);
+  }
+
+  delete(msg, action) {
+    this.config['panelClass'] = ['notification', 'warn'];
     this.snackBar.open(msg, action, this.config);
   }
 }

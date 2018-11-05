@@ -16,6 +16,7 @@ import { environment } from '../environments/environment.prod';
 import { DepartmetService } from './shared/departmet.service';
 import { NotificationService } from './shared/notification.service';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     EmployeeListComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     MaterialModule,
     ReactiveFormsModule,
@@ -37,7 +39,8 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
   providers: [
     EmployeeService,
     DepartmetService,
-    NotificationService
+    NotificationService,
+    DatePipe
   ],
   bootstrap: [AppComponent],
   entryComponents: [EmployeeComponent]

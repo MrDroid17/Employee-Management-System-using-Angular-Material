@@ -4,6 +4,7 @@ import { EmployeeService } from '../../shared/employee.service';
 import { DepartmetService } from '../../shared/departmet.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { EmployeeComponent } from '../employee/employee.component';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -21,7 +22,8 @@ export class EmployeeListComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private departmentService: DepartmetService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -39,11 +41,11 @@ export class EmployeeListComponent implements OnInit {
       this.employeelistData.sort = this.sort;
       this.employeelistData.paginator = this.paginator;
       // filter predicate
-      this.employeelistData.filterPredicate = (data, filter) => {
-        return this.displayedColumns.some(ele => {
-          return ele !== 'actions' && data[ele].toLowerCase().indexOf(filter) !== -1;
-        });
-      };
+      // this.employeelistData.filterPredicate = (data, filter) => {
+      //   return this.displayedColumns.some(ele => {
+      //     return (ele !== 'actions') && (data[ele].toLowerCase().indexOf(filter) !== -1);
+      //   });
+      // };
     });
   }
 
@@ -58,12 +60,28 @@ export class EmployeeListComponent implements OnInit {
 
   onCreateEmployee() {
     this.employeeService.initFormGroup();
+    this.DialogConfig();
+  }
+
+  onEdit(row) {
+    // row will have details of all the form
+    this.employeeService.populateForm(row);
+    this.DialogConfig();
+  }
+
+  onDelete($key) {
+    if (confirm('Are you sure to delete this dialog.')) {
+      this.employeeService.deleteEmployee($key);
+      this.notificationService.delete('! Employee Successfully removed.', 'Deleted');
+    }
+  }
+
+  // define dialog configuration
+  private DialogConfig() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '60%';
     this.dialog.open(EmployeeComponent, dialogConfig);
-
   }
-
 }
